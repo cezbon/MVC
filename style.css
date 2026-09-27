@@ -1,0 +1,22 @@
+:root { --accent: #006efa; --bg: #f6f7f9; --card: #fff; --text: #1d2330; --muted: #6b7280; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); }
+header, main, footer { max-width: 760px; margin: 0 auto; padding: 1rem; }
+header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: .5rem; }
+header h1 { margin: 0; font-size: 1.4rem; }
+a { color: var(--accent); }
+footer { color: var(--muted); font-size: .85rem; }
+.stats { display: flex; gap: 1rem; margin-bottom: 1rem; }
+.stats div { background: var(--card); padding: .75rem 1rem; border-radius: 8px; flex: 1; }
+.tasks { list-style: none; padding: 0; display: grid; gap: .5rem; }
+.tasks li { background: var(--card); padding: .6rem .8rem; border-radius: 8px; display: flex; align-items: center; gap: .6rem; }
+.tasks li a { flex: 1; }
+.tasks li.done a { text-decoration: line-through; color: var(--muted); }
+.tasks form { margin: 0; }
+.grade { color: var(--muted); font-size: .9rem; }
+button { border: 0; background: var(--accent); color: #fff; padding: .4rem .8rem; border-radius: 6px; cursor: pointer; }
+button.danger { background: #d33; }
+.new-task { display: flex; gap: .6rem; align-items: end; flex-wrap: wrap; }
+.new-task label { display: grid; gap: .2rem; }
+input, select { padding: .4rem; border: 1px solid #ccd; border-radius: 6px; font: inherit; }
+.errors { background: #fde8e8; color: #9b1c1c; padding: .6rem 1.6rem; border-radius: 8px; }
