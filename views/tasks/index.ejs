@@ -1,0 +1,23 @@
+<%- include('../partials/header', { title }) %>
+
+<!-- V – widok tylko wyświetla to, co dostał od kontrolera. Zero liczenia, zero bazy. -->
+<section class="stats">
+  <div><strong><%= stats.total %></strong> zadań</div>
+  <div><strong><%= stats.done %></strong> zrobionych</div>
+  <div>średnia: <strong><%= stats.average ?? '–' %></strong></div>
+</section>
+
+<% if (tasks.length === 0) { %>
+  <p>Brak zadań.</p>
+<% } else { %>
+  <ul class="tasks">
+    <% tasks.forEach(task => { %>
+      <li class="<%= task.done ? 'done' : '' %>">
+        <a href="/tasks/<%= task.id %>"><%= task.title %></a>
+        <span class="grade"><%= task.grade ?? 'bez oceny' %></span>
+      </li>
+    <% }) %>
+  </ul>
+<% } %>
+
+<%- include('../partials/footer') %>

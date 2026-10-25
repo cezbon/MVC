@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= title %> – Merito MVC</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main>
+    <h1><%= message %></h1>
+    <p>Czas serwera: <%= now %></p>
+    <!-- <%%= %> escapuje HTML, <%%- %> wstawia surowy HTML (tylko dla zaufanych danych, np. include) -->
+  </main>
+</body>
+</html>

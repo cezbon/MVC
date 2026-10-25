@@ -1,0 +1,11 @@
+<%- include('../partials/header', { title }) %>
+
+<h2><%= task.title %></h2>
+<dl>
+  <dt>Id</dt><dd><%= task.id %></dd>
+  <dt>Ocena</dt><dd><%= task.grade ?? 'bez oceny' %></dd>
+  <dt>Status</dt><dd><%= task.done ? 'zrobione' : 'do zrobienia' %></dd>
+</dl>
+<p><a href="/tasks">← wróć do listy</a></p>
+
+<%- include('../partials/footer') %>
