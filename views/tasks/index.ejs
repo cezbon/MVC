@@ -15,9 +15,36 @@
       <li class="<%= task.done ? 'done' : '' %>">
         <a href="/tasks/<%= task.id %>"><%= task.title %></a>
         <span class="grade"><%= task.grade ?? 'bez oceny' %></span>
+        <form method="post" action="/tasks/<%= task.id %>/toggle">
+          <button><%= task.done ? 'Cofnij' : 'Zrobione' %></button>
+        </form>
+        <form method="post" action="/tasks/<%= task.id %>/delete">
+          <button class="danger">Usuń</button>
+        </form>
       </li>
     <% }) %>
   </ul>
 <% } %>
+
+<h2>Nowe zadanie</h2>
+<% if (errors.length) { %>
+  <ul class="errors">
+    <% errors.forEach(e => { %><li><%= e %></li><% }) %>
+  </ul>
+<% } %>
+<form method="post" action="/tasks" class="new-task">
+  <label>Tytuł
+    <input name="title" value="<%= values.title ?? '' %>">
+  </label>
+  <label>Ocena
+    <select name="grade">
+      <option value="">bez oceny</option>
+      <% grades.forEach(g => { %>
+        <option value="<%= g %>" <%= String(values.grade) === String(g) ? 'selected' : '' %>><%= g %></option>
+      <% }) %>
+    </select>
+  </label>
+  <button>Dodaj</button>
+</form>
 
 <%- include('../partials/footer') %>

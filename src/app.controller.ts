@@ -1,13 +1,9 @@
-import { Controller, Get, Render } from '@nestjs/common';
-import { AppService, type Data } from './app.service.js';
+import { Controller, Get, Redirect } from '@nestjs/common';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
-
+  // Strona główna przekierowuje na listę zadań
   @Get()
-  @Render('index')
-  getHello(): Data {
-    return this.appService.getHello();
-  }
+  @Redirect('/tasks')
+  home() {}
 }

@@ -8,6 +8,16 @@ export class Task {
   ) {}
 }
 
+// Dane, które przychodzą z formularza albo z API (zawsze jako tekst)
+export interface CreateTaskInput {
+  title?: string;
+  grade?: string | number;
+}
+
+export type CreateResult =
+  | { ok: true; task: Task }
+  | { ok: false; errors: string[] };
+
 export interface TaskStats {
   total: number;
   done: number;
